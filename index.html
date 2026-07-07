@@ -1,0 +1,610 @@
+Claude is responding
+
+I will give you a resume, and the goal is to create a portfolio or freelancing website for this person. And what you will do before you create the website so that you can create initial page and give me multiple colors, schemes that I can see how they work. Right? So we'll give you the resume. You create the website. It should be simple. It should look very professional and so on. be in simple JavaScript, HTML, nothing fancy. Just if you can use more CSS to do stuff better.
+
+
+Lajwanti Menghwar
+Communication
+linkedin.com/in/lajwantim
+Communications professional and gender justice advocate with experience creating digital content for websites, social media, and newsletters. Skilled in writing, editing, designing, and translating complex research and policy issues into clear, accessible communications.
+L
+M
+Work Experience
+Menengage Allaince
+Social media and communicaiton Intern |
+Sep 2025 - Current
+
+    Produce bi-monthly newsletters for a global audience of nearly 5,000 subscribers, translating advocacy updates, research, and policy discussions into clear, engaging communications.
+    Developed and designed a newsletter that received positive feedback from Professor Michael Flood, a leading scholar in the field of gender equality.
+    Lead the creation, design, and management of digital content across social media, using a storytelling approach to policy communications that has increased engagement with advocacy content by 15%.
+
+Razorround
+Content Strategist and Writer |
+Oct 2024 - Current
+
+    Conduct market research to analyze competitor strategies and develop content plan focused on trending topics to attract target clients.
+    Create and manage monthly LinkedIn content plans, designing visuals with Microsoft Designer and Canva to strengthen personal branding.
+    Write, review, and edit weekly articles on startup fundraising, helping establish authority for a newly founded business
+
+Girl Power Talk
+Associate, Content & Media |
+Apr 2024 - Nov 2024
+
+    Created SEO-optimized blog content and digital marketing materials using keyword research, on-page SEO, and content optimization to increase organic reach and engagement.
+    Led social media strategy for Girl Power USA, managing content creation, branding, and digital campaigns that increased social media visibility by 45%, resulting in higher donor engagement, stronger partner relationships, and increased community outreach.
+    Spearheaded a high-impact fundraising campaign for cancer survivors, reaching 45,000+ people within one week and successfully achieving fundraising goals through targeted audience engagement and compelling campaign storytelling.
+
+Aurat Raaj
+Social Media Intern |
+May 2021 - Sep 2021
+
+    Created and managed digital content across social media, including videos, graphics, and blogs.
+    Developed and delivered awareness campaigns on sexual and menstrual health using clear and engaging communications.
+    Designed visual content in Canva to communicate sensitive topics in an accessible and engaging way
+
+Education
+National University of Modern Languages
+English Linguistics & Literature |
+Feb 2015 - Feb 2017
+University of Sindh
+Bachelor of Science (B.Sc.) |
+Jan 2012 - Dec 2014
+Skills
+Communication
+Content Writing & Editing • Copywriting • Storytelling • Content Design • Content Planning & Scheduling • Website Content Management • Campaign Communications • Plain Language Writing • Knowledge Translation (Translating Complex Research & Policy into Accessible Communications)
+Research
+Research & Analysis • Research Synthesis • Policy Communications • Knowledge Translation (Translating Complex Research & Policy into Accessible Communications) • Trend & Awareness Research • Evidence-Based Content Development • Report Writing
+Technical Skills and Tools
+Canva • Microsoft Designer • Mailchimp • Buffer • Meta Business Suite • WordPress • Asana • Notion • Slack • SEMrush • Google Search Console • Google Workspace • Microsoft Office • DeepL • Google Translate • Social Media Analytics • Content Performance Analysis • Basic Video Editing
+
+Architected editorial portfolio with four distinct color palettes and theme switcher
+
+Single HTML file, no frameworks, no build step — just CSS custom properties and ~30 lines of JS.
+
+Color schemes — switch live using the four dots in the top-right header:
+
+    Ajrak (default) — warm paper, deep indigo text, crimson accent. Deliberate nod to Sindhi ajrak textiles, which fits her background and advocacy identity.
+    Teal — clean white editorial look, works if she wants something more corporate/neutral.
+    Plum — soft berry tones, warmer and more personal.
+    Night — dark mode with a rose accent.
+
+All themes are just variable sets on :root, so adding or tweaking one is editing 8 hex values.
+
+Structure: hero → services (positioned for freelancing: writing, newsletters, social strategy, research translation) → experience timeline with her real metrics bolded → skills as tag groups → contact. Sticky header, scroll-reveal animation (respects reduced-motion), responsive down to mobile.
+
+Two things I changed/flagged from the resume: I fixed the typos ("Menengage Allaince" → MenEngage Alliance, "communicaiton" → Communications), and the email button points to a placeholder hello@example.com since the resume has no email — swap that in. I also left education off the page since for a freelance site the work speaks louder, but it's a 10-line addition if she wants it back.
+
+Tell me which scheme she prefers and I'll strip the switcher and lock it in, or adjust any palette.
+Lajwanti portfolio
+Code · HTML 
+
+use the green one
+Identified and remedied a syntax error in code
++3-2
+Want to be notified when Claude responds?
+
+
+Claude is AI and can make mistakes. Please double-check responses.
+Lajwanti portfolio · HTML
+<!DOCTYPE html>
+<html lang="en" data-theme="ajrak">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lajwanti Menghwar — Communications & Content</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     THEMES — each theme defines the same set of variables.
+     Switch by changing data-theme on <html>.
+     ============================================================ */
+  :root, [data-theme="ajrak"] {
+    --bg: #FAF5EC;          /* warm paper */
+    --surface: #FFFFFF;
+    --ink: #232C52;         /* deep indigo */
+    --ink-soft: #4E5578;
+    --accent: #8E2E3C;      /* ajrak crimson */
+    --accent-soft: #F0DFDC;
+    --line: #E2D9C9;
+    --tag-bg: #F1EADD;
+  }
+  [data-theme="teal"] {
+    --bg: #FBFCFA;
+    --surface: #FFFFFF;
+    --ink: #1E2A28;
+    --ink-soft: #55625F;
+    --accent: #0E6B60;
+    --accent-soft: #DCEEEA;
+    --line: #DFE6E2;
+    --tag-bg: #EEF3F0;
+  }
+  [data-theme="plum"] {
+    --bg: #F8F1F4;
+    --surface: #FFFFFF;
+    --ink: #38203A;
+    --ink-soft: #6B5470;
+    --accent: #A62963;
+    --accent-soft: #F3DCE7;
+    --line: #E7D8DF;
+    --tag-bg: #F1E5EB;
+  }
+  [data-theme="night"] {
+    --bg: #14161F;
+    --surface: #1D2029;
+    --ink: #EDEAF2;
+    --ink-soft: #A6A3B5;
+    --accent: #E4899B;
+    --accent-soft: #3A2A33;
+    --line: #2C2F3B;
+    --tag-bg: #23262F;
+  }
+ 
+  /* ============================================================
+     BASE
+     ============================================================ */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+ 
+  html { scroll-behavior: smooth; }
+ 
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Karla', system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    transition: background 0.4s ease, color 0.4s ease;
+  }
+ 
+  h1, h2, h3 { font-family: 'Fraunces', Georgia, serif; font-weight: 500; line-height: 1.15; }
+ 
+  a { color: var(--accent); }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+ 
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+ 
+  section { padding: 72px 0; }
+ 
+  .eyebrow {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+ 
+  /* ============================================================
+     HEADER
+     ============================================================ */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 24px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  .logo {
+    font-family: 'Fraunces', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .logo span { color: var(--accent); }
+  nav { display: flex; gap: 24px; }
+  nav a {
+    color: var(--ink-soft);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+  }
+  nav a:hover { color: var(--accent); }
+  @media (max-width: 640px) { nav { display: none; } }
+ 
+  /* ============================================================
+     THEME SWITCHER
+     ============================================================ */
+  .themes { display: flex; gap: 8px; align-items: center; }
+  .themes button {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    cursor: pointer;
+    padding: 0;
+    transition: transform 0.15s ease;
+  }
+  .themes button:hover { transform: scale(1.15); }
+  .themes button.active { border-color: var(--ink); }
+  .sw-ajrak { background: linear-gradient(135deg, #8E2E3C 50%, #FAF5EC 50%); }
+  .sw-teal  { background: linear-gradient(135deg, #0E6B60 50%, #FBFCFA 50%); }
+  .sw-plum  { background: linear-gradient(135deg, #A62963 50%, #F8F1F4 50%); }
+  .sw-night { background: linear-gradient(135deg, #E4899B 50%, #14161F 50%); }
+ 
+  /* ============================================================
+     HERO
+     ============================================================ */
+  .hero { padding: 110px 0 90px; }
+  .hero h1 {
+    font-size: clamp(38px, 6vw, 62px);
+    max-width: 18ch;
+    margin-bottom: 24px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent);
+    position: relative;
+    white-space: nowrap;
+  }
+  .hero h1 em svg {
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 10px;
+  }
+  .hero h1 em svg path {
+    stroke: var(--accent);
+    stroke-width: 3;
+    fill: none;
+    opacity: 0.55;
+  }
+  .hero p {
+    max-width: 54ch;
+    color: var(--ink-soft);
+    font-size: 19px;
+    margin-bottom: 36px;
+  }
+  .btn-row { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn {
+    display: inline-block;
+    padding: 13px 26px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 15px;
+    transition: transform 0.15s ease, background 0.2s ease;
+  }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-primary { background: var(--accent); color: var(--bg); }
+  .btn-ghost { border: 1.5px solid var(--line); color: var(--ink); }
+ 
+  /* ============================================================
+     SERVICES
+     ============================================================ */
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    margin-top: 36px;
+  }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 28px;
+    transition: background 0.4s ease;
+  }
+  .card h3 { font-size: 21px; margin-bottom: 10px; }
+  .card p { color: var(--ink-soft); font-size: 15.5px; }
+  .card .mark {
+    display: inline-block;
+    width: 34px;
+    height: 4px;
+    border-radius: 2px;
+    background: var(--accent);
+    margin-bottom: 18px;
+  }
+ 
+  /* ============================================================
+     EXPERIENCE
+     ============================================================ */
+  .job {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 28px;
+    padding: 32px 0;
+    border-top: 1px solid var(--line);
+  }
+  .job:last-of-type { border-bottom: 1px solid var(--line); }
+  .job .when {
+    font-size: 14px;
+    color: var(--ink-soft);
+    padding-top: 5px;
+  }
+  .job h3 { font-size: 22px; }
+  .job .role {
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 15px;
+    margin: 4px 0 14px;
+  }
+  .job ul { list-style: none; }
+  .job li {
+    color: var(--ink-soft);
+    font-size: 15.5px;
+    padding-left: 20px;
+    position: relative;
+    margin-bottom: 10px;
+  }
+  .job li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 9px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    opacity: 0.7;
+  }
+  .job strong { color: var(--ink); font-weight: 700; }
+  @media (max-width: 640px) {
+    .job { grid-template-columns: 1fr; gap: 8px; }
+  }
+ 
+  /* ============================================================
+     SKILLS
+     ============================================================ */
+  .skill-group { margin-top: 32px; }
+  .skill-group h3 { font-size: 20px; margin-bottom: 14px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .tag {
+    background: var(--tag-bg);
+    border: 1px solid var(--line);
+    color: var(--ink-soft);
+    font-size: 14px;
+    font-weight: 500;
+    padding: 6px 14px;
+    border-radius: 999px;
+  }
+ 
+  /* ============================================================
+     CONTACT + FOOTER
+     ============================================================ */
+  .contact { text-align: center; }
+  .contact h2 { font-size: clamp(30px, 4.5vw, 42px); margin-bottom: 14px; }
+  .contact p { color: var(--ink-soft); max-width: 46ch; margin: 0 auto 32px; }
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 28px 0;
+    text-align: center;
+    color: var(--ink-soft);
+    font-size: 14px;
+  }
+ 
+  h2.section-title { font-size: clamp(28px, 4vw, 38px); }
+ 
+  /* ============================================================
+     REVEAL ANIMATION
+     ============================================================ */
+  .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+ 
+<header>
+  <div class="header-inner">
+    <a class="logo" href="#top">Lajwanti<span>.</span></a>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="themes" role="group" aria-label="Color scheme">
+      <button class="sw-ajrak active" data-theme="ajrak" title="Ajrak — indigo & crimson" aria-label="Ajrak theme"></button>
+      <button class="sw-teal" data-theme="teal" title="Editorial — teal" aria-label="Teal theme"></button>
+      <button class="sw-plum" data-theme="plum" title="Berry — plum & magenta" aria-label="Plum theme"></button>
+      <button class="sw-night" data-theme="night" title="Night — dark with rose" aria-label="Night theme"></button>
+    </div>
+  </div>
+</header>
+ 
+<main id="top">
+ 
+  <!-- HERO -->
+  <section class="hero wrap">
+    <p class="eyebrow reveal">Communications · Content · Advocacy</p>
+    <h1 class="reveal">I turn research and policy into <em>stories<svg viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M2 7 Q 25 2, 50 6 T 98 4"/></svg></em> people actually read.</h1>
+    <p class="reveal">I'm Lajwanti Menghwar, a communications professional and gender justice advocate. I write, edit, and design digital content — newsletters, social campaigns, and web copy — that makes complex ideas clear and human.</p>
+    <div class="btn-row reveal">
+      <a class="btn btn-primary" href="#contact">Work with me</a>
+      <a class="btn btn-ghost" href="https://linkedin.com/in/lajwantim" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
+  </section>
+ 
+  <!-- SERVICES -->
+  <section id="services" class="wrap">
+    <p class="eyebrow reveal">What I do</p>
+    <h2 class="section-title reveal">Services</h2>
+    <div class="cards">
+      <div class="card reveal">
+        <span class="mark"></span>
+        <h3>Writing & Editing</h3>
+        <p>SEO-optimized articles, blog posts, web copy, and reports — written in plain language and edited for clarity, voice, and impact.</p>
+      </div>
+      <div class="card reveal">
+        <span class="mark"></span>
+        <h3>Newsletters & Campaigns</h3>
+        <p>End-to-end newsletter production and campaign communications, from content planning to design and delivery, for audiences in the thousands.</p>
+      </div>
+      <div class="card reveal">
+        <span class="mark"></span>
+        <h3>Social Media & Content Strategy</h3>
+        <p>Content plans, visual design, and storytelling-led social strategy that grows engagement and builds a recognizable brand voice.</p>
+      </div>
+      <div class="card reveal">
+        <span class="mark"></span>
+        <h3>Research Translation</h3>
+        <p>Turning academic research and policy into accessible communications — briefs, explainers, and advocacy content that non-experts understand.</p>
+      </div>
+    </div>
+  </section>
+ 
+  <!-- EXPERIENCE -->
+  <section id="experience" class="wrap">
+    <p class="eyebrow reveal">Where I've worked</p>
+    <h2 class="section-title reveal" style="margin-bottom: 36px;">Experience</h2>
+ 
+    <article class="job reveal">
+      <div class="when">Sep 2025 — Present</div>
+      <div>
+        <h3>MenEngage Alliance</h3>
+        <p class="role">Social Media & Communications Intern</p>
+        <ul>
+          <li>Produce bi-monthly newsletters for a global audience of nearly <strong>5,000 subscribers</strong>, translating advocacy updates, research, and policy into clear, engaging communications.</li>
+          <li>Designed a newsletter praised by Professor Michael Flood, a leading scholar in gender equality.</li>
+          <li>Lead digital content across social media with a storytelling approach that increased engagement with advocacy content by <strong>15%</strong>.</li>
+        </ul>
+      </div>
+    </article>
+ 
+    <article class="job reveal">
+      <div class="when">Oct 2024 — Present</div>
+      <div>
+        <h3>Razorround</h3>
+        <p class="role">Content Strategist & Writer</p>
+        <ul>
+          <li>Conduct market research on competitor strategies and build content plans around trending topics to attract target clients.</li>
+          <li>Create and manage monthly LinkedIn content plans, designing visuals with Microsoft Designer and Canva.</li>
+          <li>Write, review, and edit weekly articles on startup fundraising, establishing authority for a newly founded business.</li>
+        </ul>
+      </div>
+    </article>
+ 
+    <article class="job reveal">
+      <div class="when">Apr 2024 — Nov 2024</div>
+      <div>
+        <h3>Girl Power Talk</h3>
+        <p class="role">Associate, Content & Media</p>
+        <ul>
+          <li>Created SEO-optimized blog content and digital marketing materials to increase organic reach and engagement.</li>
+          <li>Led social media strategy for Girl Power USA, increasing visibility by <strong>45%</strong> and strengthening donor engagement and partner relationships.</li>
+          <li>Spearheaded a fundraising campaign for cancer survivors that reached <strong>45,000+ people in one week</strong> and met its fundraising goals.</li>
+        </ul>
+      </div>
+    </article>
+ 
+    <article class="job reveal">
+      <div class="when">May 2021 — Sep 2021</div>
+      <div>
+        <h3>Aurat Raaj</h3>
+        <p class="role">Social Media Intern</p>
+        <ul>
+          <li>Created and managed digital content across social media — videos, graphics, and blogs.</li>
+          <li>Delivered awareness campaigns on sexual and menstrual health with clear, sensitive, engaging communications.</li>
+        </ul>
+      </div>
+    </article>
+  </section>
+ 
+  <!-- SKILLS -->
+  <section id="skills" class="wrap">
+    <p class="eyebrow reveal">Toolkit</p>
+    <h2 class="section-title reveal">Skills & Tools</h2>
+ 
+    <div class="skill-group reveal">
+      <h3>Communication</h3>
+      <div class="tags">
+        <span class="tag">Content Writing & Editing</span>
+        <span class="tag">Copywriting</span>
+        <span class="tag">Storytelling</span>
+        <span class="tag">Content Design</span>
+        <span class="tag">Campaign Communications</span>
+        <span class="tag">Plain Language Writing</span>
+        <span class="tag">Knowledge Translation</span>
+        <span class="tag">Website Content Management</span>
+      </div>
+    </div>
+ 
+    <div class="skill-group reveal">
+      <h3>Research</h3>
+      <div class="tags">
+        <span class="tag">Research & Analysis</span>
+        <span class="tag">Research Synthesis</span>
+        <span class="tag">Policy Communications</span>
+        <span class="tag">Evidence-Based Content</span>
+        <span class="tag">Report Writing</span>
+      </div>
+    </div>
+ 
+    <div class="skill-group reveal">
+      <h3>Tools</h3>
+      <div class="tags">
+        <span class="tag">Canva</span>
+        <span class="tag">Microsoft Designer</span>
+        <span class="tag">Mailchimp</span>
+        <span class="tag">Buffer</span>
+        <span class="tag">Meta Business Suite</span>
+        <span class="tag">WordPress</span>
+        <span class="tag">SEMrush</span>
+        <span class="tag">Google Search Console</span>
+        <span class="tag">Asana</span>
+        <span class="tag">Notion</span>
+        <span class="tag">Social Media Analytics</span>
+        <span class="tag">Basic Video Editing</span>
+      </div>
+    </div>
+  </section>
+ 
+  <!-- CONTACT -->
+  <section id="contact" class="contact wrap">
+    <p class="eyebrow reveal">Get in touch</p>
+    <h2 class="reveal">Have a story that needs telling?</h2>
+    <p class="reveal">I'm available for freelance writing, newsletter, and content strategy projects. The fastest way to reach me is LinkedIn.</p>
+    <div class="btn-row reveal" style="justify-content: center;">
+      <a class="btn btn-primary" href="https://linkedin.com/in/lajwantim" target="_blank" rel="noopener">Message me on LinkedIn</a>
+      <a class="btn btn-ghost" href="mailto:hello@example.com">Email me</a>
+    </div>
+  </section>
+ 
+</main>
+ 
+<footer>
+  <div class="wrap">© 2026 Lajwanti Menghwar · Communications & Content</div>
+</footer>
+ 
+<script>
+  // ----- Theme switcher -----
+  const buttons = document.querySelectorAll('.themes button');
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.documentElement.setAttribute('data-theme', btn.dataset.theme);
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+ 
+  // ----- Scroll reveal -----
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+ 
+</body>
+</html>
+ 
+
